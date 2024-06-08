@@ -15,7 +15,8 @@ def main():
     region = "cn"
     path = r'/Users/zhangqunying/.qlib/qlib_data'
 
-    data = DataHandler.load_data(symbol, fields, start_time, end_time)
+    data = DataHandler(symbol=symbol, start_time=start_time, end_time=end_time,
+                       freq=freq, fields=fields, region=region, base_path=path).load_data()
 
     # Define your strategy, indicators, and signal logic here
     strategy = Strategy(
@@ -35,24 +36,24 @@ def main():
 if __name__ == "__main__":
     main()
 
-# import struct
-#
-# # Define the file path
-# file_path = r'/Users/zhangqunying/.qlib/qlib_data/cn_data_day/features/sh600008/close.day.bin'
-#
-# # Open the file in binary read mode
-# with open(file_path, 'rb') as file:
-#     # Read the binary data
-#     binary_data = file.read()
-#
-#     # Determine the number of integers (assuming each integer is 4 bytes)
-#     num_integers = len(binary_data) // 4
-#
-#     # Unpack the binary data into a list of integers
-#     integers = struct.unpack(f'{num_integers}i', binary_data)
-#
-#     # Print the list of integers
-#     print(integers)
+import struct
+
+# Define the file path
+file_path = r'/Users/zhangqunying/.qlib/qlib_data/cn_data_day/features/sh600008/close.day.bin'
+
+# Open the file in binary read mode
+with open(file_path, 'rb') as file:
+    # Read the binary data
+    binary_data = file.read()
+
+    # Determine the number of integers (assuming each integer is 4 bytes)
+    num_integers = len(binary_data) // 4
+
+    # Unpack the binary data into a list of integers
+    integers = struct.unpack(f'{num_integers}i', binary_data)
+
+    # Print the list of integers
+    print(integers)
 
 
 

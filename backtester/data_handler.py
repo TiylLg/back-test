@@ -48,14 +48,14 @@ class DataHandler:
         # return timestamps[start_idx:end_idx + 1], start_idx, end_idx
         return D.calendar(start_time=self.start_time, end_time=self.end_time, freq=self.freq)
 
-    @staticmethod
-    def load_data(symbol, fields, start_time, end_time):
+
+    def load_data(self):
 
         return D.features(
-            symbol,
-            fields,
-            start_time=start_time,
-            end_time=end_time,
+            self.symbol,
+            self.fields,
+            start_time=self.start_time,
+            end_time=self.end_time,
         )
 
 
