@@ -13,6 +13,7 @@ def main():
     freq = "day" #"1min"
     fields = "$close" #["close", "high"]
     region = "cn"
+    
     path = r'/Users/zhangqunying/.qlib/qlib_data'
 
     data = DataHandler(symbol=symbol, start_time=start_time, end_time=end_time,
